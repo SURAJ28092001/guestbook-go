@@ -13,5 +13,7 @@ jobs:
     - uses: actions/checkout@v4
     - name: Build the Docker image
       run: docker build . -t surman2825/guestbook-go:latest
-    - name: Publsih Docker Image
-      run: docker push surman2825/guestbook-go:latest
+    - name: Publish Docker Image
+      run: |
+      docker login -u surman2825 -p ${{ secrets.DOCKER_ACCESS_TOKEN }}
+      docker push surman2825/guestbook-go:latest
