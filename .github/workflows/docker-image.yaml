@@ -4,6 +4,11 @@ on:
   [workflow_dispatch]
 
 jobs:
+  debug:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Printing
+        run: echo "${{ toJson(github) }}"
 
   build:
     if: |
