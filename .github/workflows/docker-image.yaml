@@ -6,13 +6,12 @@ on:
 jobs:
 
   build:
-    if: "!contains(github.event.head_commit.message, 'BUILD_CONTAINER_IMAGE')"
     runs-on: ubuntu-latest
-    run: echo "github.event.head_commit.message"
 
     steps:  
     - uses: actions/checkout@v4
     - name: Build the Docker image
+      if: "contains(github.event.head_commit.message, 'BUILD_CONTAINER_IMAGE')"
       run: docker build . -t surman2825/guestbook-go:latest
     - name: Publish Docker Image
       run: |
