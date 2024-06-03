@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Printing
-        run: echo "${{ github.event.head_commit.message }}"
+        run: echo "${{ github.event.head_commit.message }}" 
 
   build:
     if: |
