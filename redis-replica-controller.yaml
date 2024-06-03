@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: redis-replica
-        image: registry.k8s.io/redis-slave:v2
+        image: surman2825/guestbook-go:latest
         ports:
         - name: redis-server
           containerPort: 6379
