@@ -6,6 +6,9 @@ on:
 jobs:
 
   build:
+    if: |
+      github.event_name == 'push' && github.event.head_commit.message == 'BUILD_CONTAINER_IMAGE' ||
+      github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true
     runs-on: ubuntu-latest
 
     steps:  
