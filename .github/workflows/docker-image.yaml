@@ -16,5 +16,5 @@ jobs:
     - name: Publish Docker Image
       run: |
         docker login -u surman2825 -p ${{ secrets.DOCKER_ACCESS_TOKEN }}
-        docker push surman2825/guestbook-go:latest
+        docker push surman2825/guestbook-go:latest 
  
