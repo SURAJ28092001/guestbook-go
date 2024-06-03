@@ -13,7 +13,9 @@ jobs:
     - name: Build the Docker image
       if: "contains(github.event.head_commit.message, 'BUILD_CONTAINER_IMAGE')"
       run: docker build . -t surman2825/guestbook-go:latest
+
     - name: Publish Docker Image
+      if: "contains(github.event.head_commit.message, 'BUILD_CONTAINER_IMAGE')"
       run: |
         docker login -u surman2825 -p ${{ secrets.DOCKER_ACCESS_TOKEN }}
         docker push surman2825/guestbook-go:latest
